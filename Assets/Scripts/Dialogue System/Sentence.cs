@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,4 +12,6 @@ public class Sentence
 	public string text;
 	public string optionA;
 	public string optionB;
+	public Sentence[] dialogueA;
+	public Sentence[] dialogueB;
 }

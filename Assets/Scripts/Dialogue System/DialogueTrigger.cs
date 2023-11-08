@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-	public Sentence[] dialogueExample;
+	public Message[] dialogueExample;
+	public Actor[] actors;
 
 	DialogueManager dialogueManager;
 
@@ -15,6 +16,6 @@ public class DialogueTrigger : MonoBehaviour
 
 	public void triggerDialogue()
 	{
-		dialogueManager.StartDialogue(dialogueExample);
+		dialogueManager.StartDialogue(dialogueExample, actors);
 	}
 }

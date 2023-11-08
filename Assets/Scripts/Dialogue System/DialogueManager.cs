@@ -20,21 +20,25 @@ public class DialogueManager : MonoBehaviour
 	[Header("Dialogue Options")]
 	[SerializeField] float loadingSpeed;
 
-	Sentence[] currentDialogue;
-	string currentText = "";
-	int currentId;
+	Message[] currentDialogue;
+	Actor[] currentActors;
+	string displayedText = "";
+	int activeMassageID;
+	Message message;
+	Actor actor;
 	float lettersLoaded;
 
 
-
-
-	public void StartDialogue(Sentence[] dialogue)
+	public void StartDialogue(Message[] dialogue, Actor[] actors)
 	{
 		dialoguePanel.SetActive(true);
 		currentDialogue = dialogue;
-		currentId = 0;
+		currentActors = actors;
+		activeMassageID = 0;
+		message = currentDialogue[activeMassageID];
+		actor = currentActors[message.actorID];
 		lettersLoaded = 0;
-		currentText = "";
+		displayedText = "";
 		UpdateNameAndImage();
 	}
 
@@ -43,15 +47,17 @@ public class DialogueManager : MonoBehaviour
 		switch (option)
 		{
 			case 0:
-				currentDialogue = currentDialogue[currentId].dialogueA;
+				currentDialogue = message.dialogueA;
 				break;
 			case 1:
-				currentDialogue = currentDialogue[currentId].dialogueB;
+				currentDialogue = message.dialogueB;
 				break;
 		}
-		currentId = 0;
+		activeMassageID = 0;
+		message = currentDialogue[activeMassageID];
+		actor = currentActors[message.actorID];
 		lettersLoaded = 0;
-		currentText = "";
+		displayedText = "";
 		UpdateNameAndImage();
 		optionAButton.gameObject.SetActive(false);
 		optionBButton.gameObject.SetActive(false);
@@ -65,31 +71,37 @@ public class DialogueManager : MonoBehaviour
 
 	void UpdateNameAndImage()
 	{
-		characterName.text = currentDialogue[currentId].name;
-		characterImage.sprite = currentDialogue[currentId].image;
+		characterName.text = actor.name;
+		characterImage.sprite = actor.image;
 	}
 
 	void LoadNextSentence()
 	{
-		currentId++;
-		lettersLoaded = 0f;
-		currentText = "";
-		if (currentId < currentDialogue.Length)
+		activeMassageID++;
+		if (activeMassageID < currentDialogue.Length)
+		{
+			lettersLoaded = 0f;
+			displayedText = "";
+			message = currentDialogue[activeMassageID];
+			actor = currentActors[message.actorID];
 			UpdateNameAndImage();
+		}
 		optionAButton.gameObject.SetActive(false);
 		optionBButton.gameObject.SetActive(false);
 	}
 	void ShowOptions()
 	{
-		if (currentDialogue[currentId].optionA == "")
-			return;
-		if (currentDialogue[currentId].optionB == "")
-			return;
-		optionAButton.gameObject.SetActive(true);
-		optionBButton.gameObject.SetActive(true);
+		if (message.optionA != "")
+		{
+			optionAButton.gameObject.SetActive(true);
+			optionAText.text = message.optionA;
+		}
 
-		optionAText.text = currentDialogue[currentId].optionA;
-		optionBText.text = currentDialogue[currentId].optionB;
+		if (message.optionB != "")
+		{
+			optionBButton.gameObject.SetActive(true);
+			optionBText.text = message.optionB;
+		}
 	}
 
 	private void Update()
@@ -99,35 +111,35 @@ public class DialogueManager : MonoBehaviour
 
 		if (Input.GetKeyDown("space"))
 		{
-			if (currentText.Length < currentDialogue[currentId].text.Length)
+			if (displayedText.Length < message.text.Length)
 			{
-				currentText = currentDialogue[currentId].text;
+				displayedText = message.text;
 				ShowOptions();
 			}
-			else if (currentDialogue[currentId].optionA == "")
+			else if (message.optionA == "")
 			{
 				LoadNextSentence();
 			}
 		}
 
-		if (currentId >= currentDialogue.Length)
+		if (activeMassageID >= currentDialogue.Length)
 		{
 			EndDialogue();
 			return;
 		}
-		if (currentText.Length < currentDialogue[currentId].text.Length)
+		if (displayedText.Length < message.text.Length)
 		{
 			lettersLoaded += Time.deltaTime * loadingSpeed;
-			if ((int)lettersLoaded >= currentText.Length)
+			if ((int)lettersLoaded >= displayedText.Length)
 			{
-				currentText += currentDialogue[currentId].text[currentText.Length];
-			}
-			if (currentText.Length >= currentDialogue[currentId].text.Length)
+				displayedText += message.text[displayedText.Length];
+			}	
+			if (displayedText.Length >= message.text.Length)
 			{
 				ShowOptions();
 			}
 		}
-		dialogueText.text = currentText;
+		dialogueText.text = displayedText;
 
 	}
 }

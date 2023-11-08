@@ -4,14 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Sentence
+public class Message
 {
-	public string name;
-	public Sprite image;
+	public int actorID;
 	[TextArea(3, 20)]
 	public string text;
 	public string optionA;
 	public string optionB;
-	public Sentence[] dialogueA;
-	public Sentence[] dialogueB;
+	public Message[] dialogueA;
+	public Message[] dialogueB;
+}
+
+[System.Serializable]
+public class Actor
+{
+	public string name;
+	public Sprite image;
 }

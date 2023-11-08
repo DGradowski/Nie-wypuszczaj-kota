@@ -1485,77 +1485,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueExample:
-  - name: Szczur
-    image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
+  - actorID: 0
     text: Siema Kocie!
     optionA: 
     optionB: 
     dialogueA: []
     dialogueB: []
-  - name: Kot
-    image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
+  - actorID: 1
     text: Witaj Szczurze!
     optionA: 
     optionB: 
     dialogueA: []
     dialogueB: []
-  - name: Szczur
-    image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
+  - actorID: 0
     text: "Co s\u0142ycha\u0107 Kociaku?"
     optionA: 
     optionB: 
     dialogueA: []
     dialogueB: []
-  - name: Kot
-    image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
+  - actorID: 1
     text: "Zgubi\u0142em syna :("
     optionA: 
     optionB: 
     dialogueA: []
     dialogueB: []
-  - name: Szczur
-    image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
+  - actorID: 0
     text: O kurczaki! Co teraz zrobisz?
     optionA: "Napij\u0119 si\u0119 piwka i p\xF3jd\u0119 w kime"
     optionB: "Zabije Ci\u0119 szcurze!!!"
     dialogueA:
-    - name: Kot
-      image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
+    - actorID: 1
       text: "Napij\u0119 si\u0119 piwka i p\xF3jd\u0119 w kime. Nie moja wina, \u017Ce
         si\u0119 zgubi\u0142"
       optionA: 
       optionB: 
       dialogueA: []
       dialogueB: []
-    - name: Szczur
-      image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
+    - actorID: 0
       text: Uuu sigma
       optionA: 
       optionB: 
       dialogueA: []
       dialogueB: []
     dialogueB:
-    - name: Kot
-      image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
+    - actorID: 1
       text: "Zabije Ci\u0119 szcurze!!!"
       optionA: 
       optionB: 
       dialogueA: []
       dialogueB: []
-    - name: Szczur
-      image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
+    - actorID: 0
       text: "Nie prosz\u0119 Ci\u0119 kocie nie zabijaj"
       optionA: 
       optionB: 
       dialogueA: []
       dialogueB: []
-    - name: Kot
-      image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
+    - actorID: 1
       text: No dobra
       optionA: 
       optionB: 
       dialogueA: []
       dialogueB: []
+  actors:
+  - name: Szczur
+    image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
+  - name: Kot
+    image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
 --- !u!4 &1533718953
 Transform:
   m_ObjectHideFlags: 0

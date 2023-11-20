@@ -99,6 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cea6431c2722f44ba3af60ad041c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNPC: 0
+  npcID: 0
+  missionState: 0
+  objectID: 0
+  objectState: 0
 --- !u!61 &6516910868325358409
 BoxCollider2D:
   m_ObjectHideFlags: 0

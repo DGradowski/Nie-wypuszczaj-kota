@@ -12,11 +12,11 @@ public class MissionExample : MonoBehaviour
 	[SerializeField] Actor[] Actors;
 
 	[Header("NPC 1 Dialogue")]
-	[SerializeField] Message[] TalkTo1;
+	[SerializeField] DialogueText[] TalkTo1;
 
 	[Header("NPC 1 Dialogue")]
-	[SerializeField] Message[] TalkTo0;
-	[SerializeField] Message[] UTalkedTo0;
+	[SerializeField] DialogueText[] TalkTo0;
+	[SerializeField] DialogueText[] UTalkedTo0;
 
     public void  MissionExampleSwitch(int npcID, int npcState)
 	{

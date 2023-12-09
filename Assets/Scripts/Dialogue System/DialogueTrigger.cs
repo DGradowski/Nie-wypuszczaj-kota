@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class DialogueTrigger : MonoBehaviour
 {
-	public Message[] dialogueExample;
+	public DialogueText[] dialogueExample;
 	public Actor[] actors;
 
 	DialogueManager dialogueManager;

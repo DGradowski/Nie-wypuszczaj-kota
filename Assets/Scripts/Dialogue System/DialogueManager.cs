@@ -11,135 +11,112 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] TMP_Text characterName;
 	[SerializeField] Image characterImage;
 	[SerializeField] TMP_Text dialogueText;
-	[SerializeField] Button optionAButton;
-	[SerializeField] TMP_Text optionAText;
-	[SerializeField] Button optionBButton;
-	[SerializeField] TMP_Text optionBText;
-	
-
+	[SerializeField] TMP_Text[] optionTexts;
+	[SerializeField] Button[] optionButtons;
 	[Header("Dialogue Options")]
 	[SerializeField] float loadingSpeed;
 
-	Message[] currentDialogue;
+	DialogueText[] currentDialogue;
 	Actor[] currentActors;
 	string displayedText = "";
-	int activeMassageID;
-	Message message;
+	int dialogueTextID = 0;
+	DialogueText message;
 	Actor actor;
-	float lettersLoaded;
+	float loadedLetters;
+	string currentText = "";
 
+	public Dictionary<string, int> condidtions = new Dictionary<string, int>();
 
-	public void StartDialogue(Message[] dialogue, Actor[] actors)
+	private void Start()
 	{
-		dialoguePanel.SetActive(true);
+		condidtions.Add("hasCheese", 0);
+	}
+
+	public void StartDialogue(DialogueText[] dialogue, Actor[] actors)
+	{
 		currentDialogue = dialogue;
 		currentActors = actors;
-		activeMassageID = 0;
-		message = currentDialogue[activeMassageID];
+		dialoguePanel.SetActive(true);
+		dialogueTextID = 0;
+		ClearPanel();
+	}
+
+	private void ClearPanel()
+	{
+		message = currentDialogue[dialogueTextID];
 		actor = currentActors[message.actorID];
-		lettersLoaded = 0;
-		displayedText = "";
-		UpdateNameAndImage();
-	}
-
-	public void ContinueDialogue(int option)
-	{
-		switch (option)
-		{
-			case 0:
-				currentDialogue = message.dialogueA;
-				break;
-			case 1:
-				currentDialogue = message.dialogueB;
-				break;
-		}
-		activeMassageID = 0;
-		message = currentDialogue[activeMassageID];
-		actor = currentActors[message.actorID];
-		lettersLoaded = 0;
-		displayedText = "";
-		UpdateNameAndImage();
-		optionAButton.gameObject.SetActive(false);
-		optionBButton.gameObject.SetActive(false);
-	}
-
-	void EndDialogue()
-	{
-		dialoguePanel.SetActive(false);
-		currentDialogue = null;
-	}
-
-	void UpdateNameAndImage()
-	{
+		characterImage.sprite = actor.images[message.actorImageID];
 		characterName.text = actor.name;
-		characterImage.sprite = actor.image;
+		currentText = currentDialogue[dialogueTextID].text;
+		loadedLetters = 0f;
+		displayedText = "";
+		optionButtons[0].gameObject.SetActive(false);
+		optionButtons[1].gameObject.SetActive(false);
+		optionButtons[2].gameObject.SetActive(false);
 	}
 
-	void LoadNextSentence()
+	private void LoadDialogueText()
 	{
-		activeMassageID++;
-		if (activeMassageID < currentDialogue.Length)
+		if (loadedLetters < currentText.Length)
 		{
-			lettersLoaded = 0f;
-			displayedText = "";
-			message = currentDialogue[activeMassageID];
-			actor = currentActors[message.actorID];
-			UpdateNameAndImage();
+			loadedLetters += Time.unscaledDeltaTime * loadingSpeed;
+			if (displayedText.Length < loadedLetters)
+			{
+				if (displayedText.Length == currentText.Length) return;
+				displayedText += currentText[displayedText.Length];
+			}
+			dialogueText.text = displayedText;
 		}
-		optionAButton.gameObject.SetActive(false);
-		optionBButton.gameObject.SetActive(false);
 	}
-	void ShowOptions()
-	{
-		if (message.optionA != "")
-		{
-			optionAButton.gameObject.SetActive(true);
-			optionAText.text = message.optionA;
-		}
 
-		if (message.optionB != "")
+	private void DisplayOptions()
+	{
+		if (message.options.Length == 0) return;
+		if (displayedText.Length == currentText.Length)
 		{
-			optionBButton.gameObject.SetActive(true);
-			optionBText.text = message.optionB;
+			int i = 0;
+			foreach (DialogueOption option in message.options)
+			{
+				optionButtons[i].gameObject.SetActive(true);
+				optionTexts[i].text = option.text;
+				i++;
+			}
+		}
+	}
+
+	private void LoadNextMessage()
+	{
+		dialogueTextID++;
+		ClearPanel();
+	}
+
+	private void HandleInputs()
+	{
+		if (Input.GetKeyDown("space"))
+		{
+			if (displayedText.Length < currentText.Length)
+			{
+				loadedLetters = currentText.Length;
+				displayedText = currentText;
+				dialogueText.text = displayedText;
+			}
+			else if (dialogueTextID == currentDialogue.Length - 1)
+			{
+				dialoguePanel.SetActive(false);
+			}
+			else
+			{
+				LoadNextMessage();
+			}
+
 		}
 	}
 
 	private void Update()
 	{
-		if (currentDialogue == null)
-			return;
-
-		if (Input.GetKeyDown("space"))
-		{
-			if (displayedText.Length < message.text.Length)
-			{
-				displayedText = message.text;
-				ShowOptions();
-			}
-			else if (message.optionA == "")
-			{
-				LoadNextSentence();
-			}
-		}
-
-		if (activeMassageID >= currentDialogue.Length)
-		{
-			EndDialogue();
-			return;
-		}
-		if (displayedText.Length < message.text.Length)
-		{
-			lettersLoaded += Time.deltaTime * loadingSpeed;
-			if ((int)lettersLoaded >= displayedText.Length)
-			{
-				displayedText += message.text[displayedText.Length];
-			}	
-			if (displayedText.Length >= message.text.Length)
-			{
-				ShowOptions();
-			}
-		}
-		dialogueText.text = displayedText;
-
+		if (!dialoguePanel.active) return;
+		HandleInputs();
+		LoadDialogueText();
+		DisplayOptions();
 	}
 }

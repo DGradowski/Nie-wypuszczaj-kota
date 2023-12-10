@@ -123,33 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &43919219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7808913006831842044, guid: 22cb6e892f736d54197816053c5c0ebd, type: 3}
-  m_PrefabInstance: {fileID: 249627677}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2cea6431c2722f44ba3af60ad041c41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &113439787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3019387134362616629, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
   m_PrefabInstance: {fileID: 1151817877}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &113439788 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2083264064430454505, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-  m_PrefabInstance: {fileID: 1151817877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85949d4ca91b8c8478e9f8c46e848cb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &249627677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,119 +193,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22cb6e892f736d54197816053c5c0ebd, type: 3}
---- !u!1 &861181530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 861181532}
-  - component: {fileID: 861181531}
-  - component: {fileID: 861181533}
-  m_Layer: 0
-  m_Name: NPC Interaction Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &861181531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861181530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c8d4b8ce152b424fb5e3dcd0b7cba7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &861181532
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861181530}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14287557, y: 0.20784366, z: -0.0839086}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &861181533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861181530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3371acfd075c03f4eb3490fde48fef58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npc1: {fileID: 1300264436}
-  npc2: {fileID: 43919219}
-  dialogueManager: {fileID: 113439788}
-  Actors:
-  - name: NPC 0
-    image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
-  - name: 'NPC 1 '
-    image: {fileID: 21300000, guid: 112255d4a002acd4bae657aa817683c3, type: 3}
-  - name: Player
-    image: {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
-  TalkTo1:
-  - actorID: 2
-    text: "Siema, mia\u0142em z tob\u0105 pogada\u0107."
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
-  - actorID: 0
-    text: No ok, pogadaj teraz z tym po lewo.
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
-  TalkTo0:
-  - actorID: 2
-    text: Witam
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
-  - actorID: 1
-    text: Nie witam. Najpierw pogadaj z tym po prawo.
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
-  UTalkedTo0:
-  - actorID: 2
-    text: "Pogada\u0142em z tym po prawo jak co\u015B."
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
-  - actorID: 1
-    text: "Wiem widzia\u0142em. Fajnie, \u017Ce misje dzia\u0142aj\u0105 ale tw\xF3j
-      kod to syf."
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
-  - actorID: 2
-    text: :(
-    optionA: 
-    optionB: 
-    dialogueA: []
-    dialogueB: []
 --- !u!1 &911344580
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,17 +516,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1300264436 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7808913006831842044, guid: 22cb6e892f736d54197816053c5c0ebd, type: 3}
-  m_PrefabInstance: {fileID: 114081460862302972}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2cea6431c2722f44ba3af60ad041c41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2073565932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,6 +573,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c46e5812cba810c4eb67814d4135a69b, type: 3}
+--- !u!1 &2133863292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133863293}
+  - component: {fileID: 2133863294}
+  m_Layer: 0
+  m_Name: InteractionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2133863293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133863292}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012860045, y: -0.1160862, z: -0.0102703795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2133863294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133863292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea0b7de25a92da45bd59b4c856f39b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &114081460862302972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,4 +688,4 @@ SceneRoots:
   - {fileID: 2073565932}
   - {fileID: 114081460862302972}
   - {fileID: 249627677}
-  - {fileID: 861181532}
+  - {fileID: 2133863293}

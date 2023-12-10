@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
-	public bool isNPC = true;
+	[Header("Interaction Settings")]
+	public InteractiveObjectData interactiveObjectData;
+	public int group = 0;
+	public int id = 0;
+	public int state = 0;
 
-	[Header("NPC Settings")]
-	public int npcID = 0;
-	public int npcState = 0;
+	InteractionManager interactionManager;
 
-	[Header("Object Settings")]
-	[SerializeField] int objectID = 0;
-	[SerializeField] int objectState = 0;
-
-	NPCInteractions npcInteractionsManager;
 
 	private void Start()
 	{
-		npcInteractionsManager = FindObjectOfType<NPCInteractions>();
+		group = interactiveObjectData.interactionGroup;
+		id = interactiveObjectData.interactionID;
+		state = interactiveObjectData.interactionState;
+
+		interactionManager = FindAnyObjectByType<InteractionManager>();
 	}
+
 	public void TriggerInteraction()
 	{
-		if (isNPC)
-		{
-			npcInteractionsManager.TriggerNPCInteraction(npcID, npcState);
-		}
+
 	}
+
 }

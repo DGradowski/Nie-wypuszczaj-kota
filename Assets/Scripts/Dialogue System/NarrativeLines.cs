@@ -12,7 +12,9 @@ public class DialogueText
 	public string text;
 	public DialogueOption[] options;
 	public bool triggerInteraction;
-	public int interactionID;
+	public int interactionGroup = 0;
+	public int interactionID = 0;
+	public int interactionState = 0;
 }
 
 [System.Serializable]
@@ -24,12 +26,14 @@ public class Actor
 
 [System.Serializable]
 public class DialogueOption
-{
+{	
 	public string text;
-	public string conditionName;
+	public string conditionName = "";
 	public int conditionValue;
 	public DialogueText[] nextDialogue;
 	public DialogueText[] alternativeDialogue;
-	public bool triggerInteraction;
-	public int interactionID;
+	public bool triggerInteraction = false;
+	public int interactionGroup = 0;
+	public int interactionID = 0;
+	public int interactionState = 0;
 }

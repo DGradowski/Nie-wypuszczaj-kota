@@ -33,9 +33,9 @@ public class PlayerInteraction : MonoBehaviour
 		if (possibleInteractions.Count == 0) return;
 
         currentInteraction = FindTheNearestInteraction();
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown("e"))
 		{
-			currentInteraction.TriggerInteraction();
+			// currentInteraction.TriggerInteraction();
 		}
     }
 }

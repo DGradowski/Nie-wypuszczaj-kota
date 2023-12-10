@@ -381,7 +381,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8207547, g: 0.15098791, b: 0.15098791, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1110,7 +1110,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8207547, g: 0.15098791, b: 0.15098791, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1335,26 +1335,38 @@ MonoBehaviour:
   - actorID: 0
     actorImageID: 0
     text: Siema Kocie!
-    options:
-    - text: 
-      conditionName: 
-      conditionValue: 0
-      nextDialogue: []
-      alternativeDialogue: []
-      triggerInteraction: 0
-      interactionID: 0
+    options: []
     triggerInteraction: 0
     interactionID: 0
   - actorID: 1
     actorImageID: 0
-    text: Witaj Szczurze!
+    text: 'Witaj Szczurze! '
     options: []
     triggerInteraction: 0
     interactionID: 0
   - actorID: 0
     actorImageID: 0
-    text: "Co s\u0142ycha\u0107 Kociaku?"
-    options: []
+    text: "Co s\u0142ycha\u0107 Kociaku? Masz ser?"
+    options:
+    - text: Mam ser!
+      conditionName: hasCheese
+      conditionValue: 1
+      nextDialogue:
+      - actorID: 0
+        actorImageID: 0
+        text: "Zajebi\u015Bcie"
+        options: []
+        triggerInteraction: 0
+        interactionID: 0
+      alternativeDialogue:
+      - actorID: 0
+        actorImageID: 0
+        text: Nie masz sera, pierdol sie!
+        options: []
+        triggerInteraction: 0
+        interactionID: 0
+      triggerInteraction: 0
+      interactionID: 0
     triggerInteraction: 0
     interactionID: 0
   - actorID: 1
@@ -1456,7 +1468,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8207547, g: 0.15098791, b: 0.15098791, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

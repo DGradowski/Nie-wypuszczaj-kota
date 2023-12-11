@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
+	[Header("Interaction Game Objects")]
+	[SerializeField] MissionExample missionExample;
     public void UseInteractionSwitch(int group, int id, int state, GameObject gameObject = null)
 	{
-
+		switch (group)
+		{
+			case 0:
+				missionExample.ProcessInteraction(id, state, gameObject);
+				break;
+			case 1:
+				// In progress
+				break;
+			default:
+				// Same here
+				break;
+		}
 	}
 }

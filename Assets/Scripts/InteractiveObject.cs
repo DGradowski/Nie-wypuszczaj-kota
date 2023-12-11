@@ -24,7 +24,7 @@ public class InteractiveObject : MonoBehaviour
 
 	public void TriggerInteraction()
 	{
-
+		interactionManager.UseInteractionSwitch(group, id, state, gameObject);
 	}
 
 }

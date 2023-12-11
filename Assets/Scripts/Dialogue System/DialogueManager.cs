@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
 
 	private void Start()
 	{
-		condidtions.Add("hasCheese", 1);
+		condidtions.Add("hasCheese", 0);
 
 		interactionManager = FindAnyObjectByType<InteractionManager>();
 	}
@@ -147,7 +147,7 @@ public class DialogueManager : MonoBehaviour
 		selectedOptionID %= message.options.Length;
 	}
 
-	private void SelectOption(int optionID)
+	public void SelectOption(int optionID)
 	{
 		selectedOption = message.options[optionID];
 		if (selectedOption.conditionName != "")
@@ -190,4 +190,10 @@ public class DialogueManager : MonoBehaviour
 		LoadDialogueText();
 		DisplayOptions();
 	}
+
+	public void ChangeCondition(string name, int value)
+	{
+		condidtions[name] = value;
+	}
+
 }

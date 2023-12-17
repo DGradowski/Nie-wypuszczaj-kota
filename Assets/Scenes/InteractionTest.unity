@@ -554,6 +554,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &970558971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 78121616174567283, guid: c46e5812cba810c4eb67814d4135a69b, type: 3}
+  m_PrefabInstance: {fileID: 2073565932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970558963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df93671591030494c986ceaadc592e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1016758653 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7808913006831842044, guid: 22cb6e892f736d54197816053c5c0ebd, type: 3}
@@ -792,6 +803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2083264064430454505, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 970558971}
     - target: {fileID: 3019387134362616629, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_LocalPosition.x
       value: 221.0304

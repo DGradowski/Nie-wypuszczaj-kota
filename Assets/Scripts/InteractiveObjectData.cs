@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteractiveObjectData : ScriptableObject
 {
 	[Header("Interaction Setting")]
-	public int interactionGroup = 0;
-	public int interactionID = 0;
-	public int interactionState = 0;
+	public int group = 0;
+	public int ID = 0;
+	public int state = 0;
 }

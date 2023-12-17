@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] Button[] optionButtons;
 	[Header("Dialogue Options")]
 	[SerializeField] float loadingSpeed;
+	[Header("Other")]
+	[SerializeField] PlayerMovement playerMovement;
 
 	DialogueText[] currentDialogue;
 	Actor[] currentActors;
@@ -27,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 	int selectedOptionID = 0;
 	DialogueOption selectedOption;
 	InteractionManager interactionManager;
+	bool dialogueIsActive = false;
 
 	public Dictionary<string, int> condidtions = new Dictionary<string, int>();
 
@@ -39,10 +42,13 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(DialogueText[] dialogue, Actor[] actors)
 	{
+		if (dialogueIsActive) return;
+		playerMovement.freezePlayer = true;
 		currentDialogue = dialogue;
 		currentActors = actors;
 		dialoguePanel.SetActive(true);
 		dialogueTextID = 0;
+		dialogueIsActive = true;
 		ClearPanel();
 	}
 
@@ -114,7 +120,7 @@ public class DialogueManager : MonoBehaviour
 			}
 			if (dialogueTextID == currentDialogue.Length - 1)
 			{
-				dialoguePanel.SetActive(false);
+				EndDialogue();
 			}
 			else if (message.options.Length == 0)
 			{
@@ -135,7 +141,7 @@ public class DialogueManager : MonoBehaviour
 		}
 		if (Input.GetKeyDown("q"))
 		{
-			dialoguePanel.SetActive(false);
+			EndDialogue();
 		}
 	}
 
@@ -150,6 +156,7 @@ public class DialogueManager : MonoBehaviour
 	public void SelectOption(int optionID)
 	{
 		selectedOption = message.options[optionID];
+		dialogueIsActive = false;
 		if (selectedOption.conditionName != "")
 		{
 			if (condidtions[selectedOption.conditionName] == selectedOption.conditionValue)
@@ -169,7 +176,7 @@ public class DialogueManager : MonoBehaviour
 		{
 			if (selectedOption.nextDialogue.Length <= 0)
 			{
-				dialoguePanel.SetActive(false);
+				EndDialogue();
 			}
 			else
 			{
@@ -181,6 +188,13 @@ public class DialogueManager : MonoBehaviour
 	private void TriggerInteraction(int group, int id, int state)
 	{
 		interactionManager.UseInteractionSwitch(group, id, state);
+	}
+
+	private void EndDialogue()
+	{
+		playerMovement.freezePlayer = false;
+		dialogueIsActive = false;
+		dialoguePanel.SetActive(false);
 	}
 
 	private void Update()

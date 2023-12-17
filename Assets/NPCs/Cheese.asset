@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37341c8c40578534ea74c7edfe75d77f, type: 3}
   m_Name: Cheese
   m_EditorClassIdentifier: 
-  interactionGroup: 0
-  interactionID: 1
-  interactionState: 0
+  group: 0
+  ID: 1
+  state: 0

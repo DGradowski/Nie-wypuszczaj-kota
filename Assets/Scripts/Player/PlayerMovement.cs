@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float MoveSpeed;
     public Rigidbody2D rb;
     private Vector2 PlayerInput;
+	public bool freezePlayer = false;
    
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+		if (freezePlayer) return;
         PlayerInput.x = Input.GetAxisRaw("Horizontal");
         PlayerInput.y = Input.GetAxisRaw("Vertical");
 

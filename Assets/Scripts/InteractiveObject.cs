@@ -15,9 +15,10 @@ public class InteractiveObject : MonoBehaviour
 
 	private void Start()
 	{
-		group = interactiveObjectData.interactionGroup;
-		id = interactiveObjectData.interactionID;
-		state = interactiveObjectData.interactionState;
+		if (interactiveObjectData == null) return;
+		group = interactiveObjectData.group;
+		id = interactiveObjectData.ID;
+		state = interactiveObjectData.state;
 
 		interactionManager = FindAnyObjectByType<InteractionManager>();
 	}

@@ -5,26 +5,26 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     private Transform destination;
+    public Transform player;
+    public Transform blueportal, orangeportal;
+    
 
-    public bool isOrange;
-    public float distance = 0.2f;
-    void Start()
+    public void SelectPortal(int id)
     {
-        if (isOrange == false)
+       switch(id)
         {
-            destination = GameObject.FindGameObjectWithTag("orange").GetComponent<Transform>();
-        }
-        else
-        {
-            destination = GameObject.FindGameObjectWithTag("blue").GetComponent<Transform>();
+            case 0:
+                TeleportPlayer(orangeportal);
+             break;
+            case 1:
+                TeleportPlayer(blueportal);
+                break;
+
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    public void TeleportPlayer(Transform destination)
     {
-       if (Vector2.Distance(transform.position, other.transform.position) > distance)
-        {
-            other.transform.position = new Vector2 (destination.position.x, destination.position.y);
-        }
+        player.transform.position = new Vector2(destination.position.x, destination.position.y);
     }
 }
+    

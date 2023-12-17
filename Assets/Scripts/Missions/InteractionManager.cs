@@ -6,6 +6,7 @@ public class InteractionManager : MonoBehaviour
 {
 	[Header("Interaction Game Objects")]
 	[SerializeField] MissionExample missionExample;
+	[SerializeField] Portal portalManager;
     public void UseInteractionSwitch(int group, int id, int state, GameObject gameObject = null)
 	{
 		switch (group)
@@ -15,6 +16,9 @@ public class InteractionManager : MonoBehaviour
 				break;
 			case 1:
 				// In progress
+				break;
+			case 4:
+				portalManager.SelectPortal(id);
 				break;
 			default:
 				// Same here

@@ -16,6 +16,9 @@ public class InteractionManager : MonoBehaviour
 			case 1:
 				// In progress
 				break;
+			case 4:
+				gameObject.GetComponent<Portal>().TeleportPlayer();
+				break;
 			default:
 				// Same here
 				break;

@@ -768,6 +768,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -848,6 +856,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -874,6 +890,14 @@ PrefabInstance:
     - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

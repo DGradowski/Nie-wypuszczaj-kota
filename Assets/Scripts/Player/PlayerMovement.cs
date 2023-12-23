@@ -18,7 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-		if (freezePlayer) return;
+		if (freezePlayer)
+		{
+			PlayerInput.x = 0;
+			PlayerInput.y = 0;
+			return;
+		}
         PlayerInput.x = Input.GetAxisRaw("Horizontal");
         PlayerInput.y = Input.GetAxisRaw("Vertical");
 

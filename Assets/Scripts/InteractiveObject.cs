@@ -10,6 +10,7 @@ public class InteractiveObject : MonoBehaviour
 	public int id = 0;
 	public int state = 0;
 
+
 	InteractionManager interactionManager;
 
 
@@ -26,5 +27,4 @@ public class InteractiveObject : MonoBehaviour
 	{
 		interactionManager.UseInteractionSwitch(group, id, state, gameObject);
 	}
-
 }

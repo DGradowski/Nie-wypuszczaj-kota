@@ -6,6 +6,12 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+	[Header("Input Settings")]
+	[SerializeField] string select = "e";
+	[SerializeField] string nextOption = "s";
+	[SerializeField] string previousOption = "w";
+	[SerializeField] string quit = "q";
+
 	[Header("UI Components")]
 	[SerializeField] GameObject dialoguePanel;
 	[SerializeField] TMP_Text characterName;
@@ -30,6 +36,8 @@ public class DialogueManager : MonoBehaviour
 	DialogueOption selectedOption;
 	InteractionManager interactionManager;
 	bool dialogueIsActive = false;
+	bool inputsAreActive = false;
+	bool buttonsAreDisplayed = false;
 
 	public Dictionary<string, int> condidtions = new Dictionary<string, int>();
 
@@ -62,6 +70,7 @@ public class DialogueManager : MonoBehaviour
 		selectedOptionID = 0;
 		loadedLetters = 0f;
 		displayedText = "";
+		buttonsAreDisplayed = false;
 		optionButtons[0].gameObject.SetActive(false);
 		optionButtons[1].gameObject.SetActive(false);
 		optionButtons[2].gameObject.SetActive(false);
@@ -94,6 +103,7 @@ public class DialogueManager : MonoBehaviour
 				i++;
 			}
 			optionButtons[selectedOptionID].Select();
+			buttonsAreDisplayed = true;
 		}
 	}
 
@@ -105,8 +115,18 @@ public class DialogueManager : MonoBehaviour
 
 	private void HandleInputs()
 	{
-		if (Input.GetKeyDown("space"))
+		if (Input.GetKeyDown(select))
 		{
+			if (!inputsAreActive)
+			{
+				inputsAreActive = true;
+				return;
+			}
+			if (buttonsAreDisplayed)
+			{
+				SelectOption(selectedOptionID);
+				return;
+			}
 			if (displayedText.Length < currentText.Length)
 			{
 				loadedLetters = currentText.Length;
@@ -126,20 +146,16 @@ public class DialogueManager : MonoBehaviour
 			{
 				LoadNextMessage();
 			}
-			else
-			{
-				SelectOption(selectedOptionID);
-			}
 		}
-		if (Input.GetKeyDown("w"))
+		if (Input.GetKeyDown(previousOption))
 		{
 			ChangeOption(-1);
 		}
-		if (Input.GetKeyDown("s"))
+		if (Input.GetKeyDown(nextOption))
 		{
 			ChangeOption(1);
 		}
-		if (Input.GetKeyDown("q"))
+		if (Input.GetKeyDown(quit))
 		{
 			EndDialogue();
 		}
@@ -194,12 +210,13 @@ public class DialogueManager : MonoBehaviour
 	{
 		playerMovement.freezePlayer = false;
 		dialogueIsActive = false;
+		inputsAreActive = false;
 		dialoguePanel.SetActive(false);
 	}
 
 	private void Update()
 	{
-		if (!dialoguePanel.activeSelf) return;
+		if (!dialogueIsActive) return;
 		HandleInputs();
 		LoadDialogueText();
 		DisplayOptions();

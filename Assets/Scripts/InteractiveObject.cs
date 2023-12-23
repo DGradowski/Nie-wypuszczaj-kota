@@ -15,12 +15,12 @@ public class InteractiveObject : MonoBehaviour
 
 	private void Start()
 	{
+		interactionManager = FindAnyObjectByType<InteractionManager>();
+
 		if (interactiveObjectData == null) return;
 		group = interactiveObjectData.group;
 		id = interactiveObjectData.ID;
 		state = interactiveObjectData.state;
-
-		interactionManager = FindAnyObjectByType<InteractionManager>();
 	}
 
 	public void TriggerInteraction()

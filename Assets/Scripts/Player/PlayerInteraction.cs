@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 {
 	public List<InteractiveObject> possibleInteractions = new List<InteractiveObject>();
 	InteractiveObject currentInteraction;
+	int ignoreValue = 0;
 
 	InteractiveObject FindTheNearestInteraction()
 	{
@@ -28,6 +29,11 @@ public class PlayerInteraction : MonoBehaviour
 		return theNearestInteraction;
 	}
 
+	public void SetIngoreValue(int value)
+	{
+		ignoreValue = value;
+	}
+
 	void Update()
     {
 		if (possibleInteractions.Count == 0) return;
@@ -35,6 +41,11 @@ public class PlayerInteraction : MonoBehaviour
         currentInteraction = FindTheNearestInteraction();
 		if (Input.GetKeyDown("e"))
 		{
+			if (ignoreValue > 0)
+			{
+				ignoreValue--;
+				return;
+			}
 			currentInteraction.TriggerInteraction();
 		}
     }

@@ -234,17 +234,58 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.16, y: 1.16, z: 0.2}
   m_Center: {x: 0.0067392588, y: 0.074132144, z: 0}
---- !u!114 &272368222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2083264064430454505, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+--- !u!1 &157278521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2376683515217767978, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
   m_PrefabInstance: {fileID: 1151817877}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!95 &157278525
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157278521}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85949d4ca91b8c8478e9f8c46e848cb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97edfdd9891b6504cad2c2177271c9e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &237941941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5735340296611470914, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+  m_PrefabInstance: {fileID: 1151817877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &237941945
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237941941}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97edfdd9891b6504cad2c2177271c9e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &735832389
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +326,11 @@ MonoBehaviour:
     images:
     - {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
   dialogue1:
-  - actorID: 0
-    actorImageID: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 1
     text: "Pogadam z tob\u0105 tylko pod warunkiem, \u017Ce przyniesiesz ser. A teraz
       wypad!"
     options: []
@@ -294,33 +338,111 @@ MonoBehaviour:
     interactionGroup: 0
     interactionID: 0
     interactionState: 0
-  - actorID: 1
-    actorImageID: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 0
     text: "Okej, robi si\u0119."
     options: []
-    triggerInteraction: 1
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 2
+    interactionState: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 1
+    text: "Okej, robi si\u0119."
+    options: []
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 2
+    interactionState: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 0
+    text: "Okej, robi si\u0119."
+    options: []
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 2
+    interactionState: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 1
+    text: "Okej, robi si\u0119."
+    options: []
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 2
+    interactionState: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 0
+    text: "Okej, robi si\u0119."
+    options: []
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 2
+    interactionState: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 1
+    text: "Okej, robi si\u0119."
+    options: []
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 2
+    interactionState: 0
+  - actorA: 0
+    imageA: 0
+    actorB: 1
+    imageB: 0
+    leftIsTalking: 1
+    text: "Okej, robi si\u0119."
+    options: []
+    triggerInteraction: 0
     interactionGroup: 0
     interactionID: 2
     interactionState: 0
   dialogue2:
-  - actorID: 0
-    actorImageID: 0
+  - actorA: 1
+    imageA: 0
+    actorB: 0
+    imageB: 0
+    leftIsTalking: 1
     text: "Masz ju\u017C ten ser?"
     options:
     - text: Mam ten serek
       conditionName: hasCheese
       conditionValue: 1
       nextDialogue:
-      - actorID: 1
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: Mam ten serek! :3
         options: []
         triggerInteraction: 0
         interactionGroup: 0
         interactionID: 0
         interactionState: 0
-      - actorID: 0
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: "Zajebi\u015Bcie! Spoko z ciebie kot"
         options: []
         triggerInteraction: 1
@@ -328,16 +450,22 @@ MonoBehaviour:
         interactionID: 2
         interactionState: 1
       alternativeDialogue:
-      - actorID: 1
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: Mam ten serek! :3
         options: []
         triggerInteraction: 0
         interactionGroup: 0
         interactionID: 0
         interactionState: 0
-      - actorID: 0
-        actorImageID: 1
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: "K\u0142amiesz!!! Wynocha po ser!"
         options: []
         triggerInteraction: 0
@@ -352,16 +480,497 @@ MonoBehaviour:
       conditionName: 
       conditionValue: 0
       nextDialogue:
-      - actorID: 1
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: Nie mam :/
         options: []
         triggerInteraction: 0
         interactionGroup: 0
         interactionID: 0
         interactionState: 0
-      - actorID: 0
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: To lepiej miej. Wynocha!
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      alternativeDialogue: []
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 0
+    interactionState: 0
+  - actorA: 1
+    imageA: 0
+    actorB: 0
+    imageB: 0
+    leftIsTalking: 0
+    text: "Masz ju\u017C ten ser?"
+    options:
+    - text: Mam ten serek
+      conditionName: hasCheese
+      conditionValue: 1
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "Zajebi\u015Bcie! Spoko z ciebie kot"
+        options: []
+        triggerInteraction: 1
+        interactionGroup: 0
+        interactionID: 2
+        interactionState: 1
+      alternativeDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "K\u0142amiesz!!! Wynocha po ser!"
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    - text: Nie mam :/
+      conditionName: 
+      conditionValue: 0
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Nie mam :/
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: To lepiej miej. Wynocha!
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      alternativeDialogue: []
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 0
+    interactionState: 0
+  - actorA: 1
+    imageA: 0
+    actorB: 0
+    imageB: 0
+    leftIsTalking: 0
+    text: "Masz ju\u017C ten ser?"
+    options:
+    - text: Mam ten serek
+      conditionName: hasCheese
+      conditionValue: 1
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "Zajebi\u015Bcie! Spoko z ciebie kot"
+        options: []
+        triggerInteraction: 1
+        interactionGroup: 0
+        interactionID: 2
+        interactionState: 1
+      alternativeDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "K\u0142amiesz!!! Wynocha po ser!"
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    - text: Nie mam :/
+      conditionName: 
+      conditionValue: 0
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Nie mam :/
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: To lepiej miej. Wynocha!
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      alternativeDialogue: []
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 0
+    interactionState: 0
+  - actorA: 1
+    imageA: 0
+    actorB: 0
+    imageB: 0
+    leftIsTalking: 0
+    text: "Masz ju\u017C ten ser?"
+    options:
+    - text: Mam ten serek
+      conditionName: hasCheese
+      conditionValue: 1
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "Zajebi\u015Bcie! Spoko z ciebie kot"
+        options: []
+        triggerInteraction: 1
+        interactionGroup: 0
+        interactionID: 2
+        interactionState: 1
+      alternativeDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "K\u0142amiesz!!! Wynocha po ser!"
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    - text: Nie mam :/
+      conditionName: 
+      conditionValue: 0
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Nie mam :/
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: To lepiej miej. Wynocha!
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      alternativeDialogue: []
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 0
+    interactionState: 0
+  - actorA: 1
+    imageA: 0
+    actorB: 0
+    imageB: 0
+    leftIsTalking: 1
+    text: "Masz ju\u017C ten ser?"
+    options:
+    - text: Mam ten serek
+      conditionName: hasCheese
+      conditionValue: 1
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "Zajebi\u015Bcie! Spoko z ciebie kot"
+        options: []
+        triggerInteraction: 1
+        interactionGroup: 0
+        interactionID: 2
+        interactionState: 1
+      alternativeDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "K\u0142amiesz!!! Wynocha po ser!"
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    - text: Nie mam :/
+      conditionName: 
+      conditionValue: 0
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Nie mam :/
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: To lepiej miej. Wynocha!
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      alternativeDialogue: []
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    triggerInteraction: 0
+    interactionGroup: 0
+    interactionID: 0
+    interactionState: 0
+  - actorA: 1
+    imageA: 0
+    actorB: 0
+    imageB: 0
+    leftIsTalking: 0
+    text: "Masz ju\u017C ten ser?"
+    options:
+    - text: Mam ten serek
+      conditionName: hasCheese
+      conditionValue: 1
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "Zajebi\u015Bcie! Spoko z ciebie kot"
+        options: []
+        triggerInteraction: 1
+        interactionGroup: 0
+        interactionID: 2
+        interactionState: 1
+      alternativeDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Mam ten serek! :3
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: "K\u0142amiesz!!! Wynocha po ser!"
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      triggerInteraction: 0
+      interactionGroup: 0
+      interactionID: 0
+      interactionState: 0
+    - text: Nie mam :/
+      conditionName: 
+      conditionValue: 0
+      nextDialogue:
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
+        text: Nie mam :/
+        options: []
+        triggerInteraction: 0
+        interactionGroup: 0
+        interactionID: 0
+        interactionState: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: To lepiej miej. Wynocha!
         options: []
         triggerInteraction: 0
@@ -378,8 +987,11 @@ MonoBehaviour:
     interactionID: 0
     interactionState: 0
   dialogue3:
-  - actorID: 0
-    actorImageID: 0
+  - actorA: -1
+    imageA: 0
+    actorB: -1
+    imageB: 0
+    leftIsTalking: 1
     text: "Mam ju\u017C ser. Jestem zadowolony"
     options: []
     triggerInteraction: 0
@@ -563,6 +1175,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df93671591030494c986ceaadc592e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &970558972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389656404737859737, guid: c46e5812cba810c4eb67814d4135a69b, type: 3}
+  m_PrefabInstance: {fileID: 2073565932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970558963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76c2ff31cc36a54babb25ba5bf6c809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1016758653 stripped
@@ -767,46 +1390,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_Colors.m_FadeDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 272368222}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613513084480508606, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1859239934531343899, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_Name
       value: Dialogue Manager
@@ -815,6 +1398,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 970558971}
+    - target: {fileID: 2083264064430454505, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: playerInteraction
+      value: 
+      objectReference: {fileID: 970558972}
     - target: {fileID: 3019387134362616629, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_LocalPosition.x
       value: 221.0304
@@ -855,86 +1442,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_Colors.m_FadeDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 272368222}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439379796362055669, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_Colors.m_FadeDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 272368222}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269795635486887219, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2376683515217767978, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 157278525}
+    - targetCorrespondingSourceObject: {fileID: 5735340296611470914, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 237941945}
   m_SourcePrefab: {fileID: 100100000, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
 --- !u!1 &1164710628
 GameObject:

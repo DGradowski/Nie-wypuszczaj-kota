@@ -102,8 +102,6 @@ public class DialogueManager : MonoBehaviour
 			{
 				characterImageB.gameObject.GetComponent<Animator>().SetBool("Active", false);
 			}
-			characterImageA.gameObject.GetComponent<Animator>().SetBool("FirstAnimation", false);
-			characterImageB.gameObject.GetComponent<Animator>().SetBool("FirstAnimation", false);
 			return;
 		}
 		else if (!message.leftIsTalking && actorIdB != -1)
@@ -248,8 +246,6 @@ public class DialogueManager : MonoBehaviour
 	{
 		playerMovement.freezePlayer = false;
 		playerInteraction.SetIngoreValue(1);
-		characterImageA.gameObject.GetComponent<Animator>().SetBool("FirstAnimation", true);
-		characterImageB.gameObject.GetComponent<Animator>().SetBool("FirstAnimation", true);
 		dialogueIsActive = false;
 		inputsAreActive = false;
 		dialoguePanel.SetActive(false);

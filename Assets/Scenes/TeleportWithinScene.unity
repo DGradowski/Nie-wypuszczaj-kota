@@ -465,8 +465,11 @@ MonoBehaviour:
     images:
     - {fileID: 21300000, guid: c4128cb9eb97ccf47b8982bb68a5975a, type: 3}
   dialogue1:
-  - actorID: 0
-    actorImageID: 0
+  - actorA: -1
+    imageA: 0
+    actorB: -1
+    imageB: 0
+    leftIsTalking: 1
     text: "Pogadam z tob\u0105 tylko pod warunkiem, \u017Ce przyniesiesz ser. A teraz
       wypad!"
     options: []
@@ -474,8 +477,11 @@ MonoBehaviour:
     interactionGroup: 0
     interactionID: 0
     interactionState: 0
-  - actorID: 1
-    actorImageID: 0
+  - actorA: -1
+    imageA: 0
+    actorB: -1
+    imageB: 0
+    leftIsTalking: 1
     text: "Okej, robi si\u0119."
     options: []
     triggerInteraction: 1
@@ -483,24 +489,33 @@ MonoBehaviour:
     interactionID: 2
     interactionState: 0
   dialogue2:
-  - actorID: 0
-    actorImageID: 0
+  - actorA: -1
+    imageA: 0
+    actorB: -1
+    imageB: 0
+    leftIsTalking: 1
     text: "Masz ju\u017C ten ser?"
     options:
     - text: Mam ten serek
       conditionName: hasCheese
       conditionValue: 1
       nextDialogue:
-      - actorID: 1
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: Mam ten serek! :3
         options: []
         triggerInteraction: 0
         interactionGroup: 0
         interactionID: 0
         interactionState: 0
-      - actorID: 0
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: "Zajebi\u015Bcie! Spoko z ciebie kot"
         options: []
         triggerInteraction: 1
@@ -508,16 +523,22 @@ MonoBehaviour:
         interactionID: 2
         interactionState: 1
       alternativeDialogue:
-      - actorID: 1
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: Mam ten serek! :3
         options: []
         triggerInteraction: 0
         interactionGroup: 0
         interactionID: 0
         interactionState: 0
-      - actorID: 0
-        actorImageID: 1
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: "K\u0142amiesz!!! Wynocha po ser!"
         options: []
         triggerInteraction: 0
@@ -532,16 +553,22 @@ MonoBehaviour:
       conditionName: 
       conditionValue: 0
       nextDialogue:
-      - actorID: 1
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: Nie mam :/
         options: []
         triggerInteraction: 0
         interactionGroup: 0
         interactionID: 0
         interactionState: 0
-      - actorID: 0
-        actorImageID: 0
+      - actorA: -1
+        imageA: 0
+        actorB: -1
+        imageB: 0
+        leftIsTalking: 1
         text: To lepiej miej. Wynocha!
         options: []
         triggerInteraction: 0
@@ -558,8 +585,11 @@ MonoBehaviour:
     interactionID: 0
     interactionState: 0
   dialogue3:
-  - actorID: 0
-    actorImageID: 0
+  - actorA: -1
+    imageA: 0
+    actorB: -1
+    imageB: 0
+    leftIsTalking: 1
     text: "Mam ju\u017C ser. Jestem zadowolony"
     options: []
     triggerInteraction: 0
@@ -739,6 +769,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7335796510378080451, guid: c46e5812cba810c4eb67814d4135a69b, type: 3}
   m_PrefabInstance: {fileID: 2073565932}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &970558975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389656404737859737, guid: c46e5812cba810c4eb67814d4135a69b, type: 3}
+  m_PrefabInstance: {fileID: 2073565932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970558963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76c2ff31cc36a54babb25ba5bf6c809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &970558976 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 78121616174567283, guid: c46e5812cba810c4eb67814d4135a69b, type: 3}
+  m_PrefabInstance: {fileID: 2073565932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970558963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df93671591030494c986ceaadc592e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &997757084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1209,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2083264064430454505, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 970558976}
+    - target: {fileID: 2083264064430454505, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
+      propertyPath: playerInteraction
+      value: 
+      objectReference: {fileID: 970558975}
     - target: {fileID: 3019387134362616629, guid: 12e71fcdc5b7e4d4dbd9c2bc4a7f5d40, type: 3}
       propertyPath: m_LocalPosition.x
       value: 221.0304

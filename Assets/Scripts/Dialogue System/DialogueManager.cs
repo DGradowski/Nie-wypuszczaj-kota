@@ -15,7 +15,8 @@ public class DialogueManager : MonoBehaviour
 	[Header("UI Components")]
 	[SerializeField] GameObject dialoguePanel;
 	[SerializeField] TMP_Text characterName;
-	[SerializeField] Image characterImage;
+	[SerializeField] Image characterImageA;
+	[SerializeField] Image characterImageB;
 	[SerializeField] TMP_Text dialogueText;
 	[SerializeField] TMP_Text[] optionTexts;
 	[SerializeField] Button[] optionButtons;
@@ -23,13 +24,15 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] float loadingSpeed;
 	[Header("Other")]
 	[SerializeField] PlayerMovement playerMovement;
+	[SerializeField] PlayerInteraction playerInteraction;
 
 	DialogueText[] currentDialogue;
 	Actor[] currentActors;
 	string displayedText = "";
 	int dialogueTextID = 0;
 	DialogueText message;
-	Actor actor;
+	Actor actorA;
+	Actor actorB;
 	float loadedLetters;
 	string currentText = "";
 	int selectedOptionID = 0;
@@ -63,17 +66,55 @@ public class DialogueManager : MonoBehaviour
 	private void ClearPanel()
 	{
 		message = currentDialogue[dialogueTextID];
-		actor = currentActors[message.actorID];
-		characterImage.sprite = actor.images[message.actorImageID];
-		characterName.text = actor.name;
 		currentText = currentDialogue[dialogueTextID].text;
 		selectedOptionID = 0;
 		loadedLetters = 0f;
 		displayedText = "";
+		LoadActors(message.actorA, message.imageA, message.actorB, message.imageB);
 		buttonsAreDisplayed = false;
 		optionButtons[0].gameObject.SetActive(false);
 		optionButtons[1].gameObject.SetActive(false);
 		optionButtons[2].gameObject.SetActive(false);
+	}
+
+	private void LoadActors(int actorIdA, int imageA, int actorIdB, int imageB)
+	{
+		characterImageA.gameObject.SetActive(false);
+		characterImageB.gameObject.SetActive(false);
+
+		if (actorIdA != -1)
+		{
+			actorA = currentActors[actorIdA];
+			characterImageA.gameObject.SetActive(true);
+			characterImageA.sprite = actorA.images[imageA];
+		}
+		if (actorIdB != -1)
+		{
+			actorB = currentActors[actorIdB];
+			characterImageB.gameObject.SetActive(true);
+			characterImageB.sprite = actorB.images[imageB];
+		}
+		if (message.leftIsTalking && actorIdA != -1)
+		{
+			characterName.text = actorA.name;
+			characterImageA.gameObject.GetComponent<Animator>().SetBool("Active", true);
+			if (actorIdB != -1)
+			{
+				characterImageB.gameObject.GetComponent<Animator>().SetBool("Active", false);
+			}
+			return;
+		}
+		else if (!message.leftIsTalking && actorIdB != -1)
+		{
+			characterName.text = actorB.name;
+			characterImageB.gameObject.GetComponent<Animator>().SetBool("Active", true);
+			if (actorIdB != -1)
+			{
+				characterImageA.gameObject.GetComponent<Animator>().SetBool("Active", false);
+			}
+			return;
+		}
+		characterName.text = "";
 	}
 
 	private void LoadDialogueText()
@@ -117,11 +158,6 @@ public class DialogueManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(select))
 		{
-			if (!inputsAreActive)
-			{
-				inputsAreActive = true;
-				return;
-			}
 			if (buttonsAreDisplayed)
 			{
 				SelectOption(selectedOptionID);
@@ -209,6 +245,7 @@ public class DialogueManager : MonoBehaviour
 	private void EndDialogue()
 	{
 		playerMovement.freezePlayer = false;
+		playerInteraction.SetIngoreValue(1);
 		dialogueIsActive = false;
 		inputsAreActive = false;
 		dialoguePanel.SetActive(false);

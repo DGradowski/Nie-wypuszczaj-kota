@@ -6,8 +6,11 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueText
 {
-	public int actorID;
-	public int actorImageID;
+	public int actorA = -1;
+	public int imageA;
+	public int actorB = -1;
+	public int imageB;
+	public bool leftIsTalking = true;
 	[TextArea(3, 20)]
 	public string text;
 	public DialogueOption[] options;

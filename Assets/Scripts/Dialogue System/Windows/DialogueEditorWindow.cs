@@ -22,6 +22,8 @@ namespace DSWindows
 		{
 			DialogueGraphView graphView = new DialogueGraphView();
 
+			graphView.StretchToParentSize();
+
 			rootVisualElement.Add(graphView);
 		}
 	}

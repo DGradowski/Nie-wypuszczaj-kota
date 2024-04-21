@@ -9,17 +9,6 @@ public class MissionExample : MonoBehaviour
 
 	[Header("Other")]
 	[SerializeField] InteractiveObject cheese;
-	private DialogueManager dialogueManager;
-	public Actor[] actors;
-
-	public DialogueText[] dialogue1;
-	public DialogueText[] dialogue2;
-	public DialogueText[] dialogue3;
-
-	private void Start()
-	{
-		dialogueManager = FindAnyObjectByType<DialogueManager>();
-	}
 
 	public void ProcessInteraction(int id, int state, GameObject gameObject = null)
 	{
@@ -40,27 +29,12 @@ public class MissionExample : MonoBehaviour
 
 	private void BuffedRatInteractions(int state)
 	{
-		switch (state)
-		{
-			case 0:
-				dialogueManager.StartDialogue(dialogue1, actors);
-				break;
-			case 1:
-				dialogueManager.StartDialogue(dialogue2, actors);
-				break;
-			case 2:
-				dialogueManager.StartDialogue(dialogue3, actors);
-				break;
-		}
+
 	}
 
 	private void PickUpCheese()
 	{
-		if (cheese.state == 1)
-		{
-			cheese.gameObject.SetActive(false);
-			dialogueManager.ChangeCondition("hasCheese", 1);
-		}
+
 	}
 
 	private void DialogueInteraction(int state)

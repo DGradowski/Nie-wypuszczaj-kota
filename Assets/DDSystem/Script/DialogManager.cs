@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 namespace Doublsb.Dialog
 {
@@ -38,10 +39,16 @@ namespace Doublsb.Dialog
         //================================================
         [Header("Game Objects")]
         public GameObject Printer;
-        public GameObject Characters;
+        public GameObject CharactersLeft;
+        public GameObject CharactersRight;
+        public GameObject nameWindowLeft;
+        public GameObject nameWindowRight;
+
 
         [Header("UI Objects")]
         public Text Printer_Text;
+        public TMP_Text nameTextLeft;
+        public TMP_Text nameTextRight;
 
         [Header("Audio Objects")]
         public AudioSource SEAudio;
@@ -64,7 +71,8 @@ namespace Doublsb.Dialog
         //================================================
         //Private Method
         //================================================
-        private Character _current_Character;
+        private Character _current_Character_Left;
+        private Character _current_Character_Right;
         private DialogData _current_Data;
 
         private float _currentDelay;
@@ -79,10 +87,32 @@ namespace Doublsb.Dialog
         public void Show(DialogData Data)
         {
             _current_Data = Data;
-            _find_character(Data.Character);
+            _hide_characters();
+            _find_character_left(Data.CharacterLeft);
+            _find_character_right(Data.CharacterRight);
 
-            if(_current_Character != null)
-                _emote("Normal");
+            Printer.GetComponent<Button>().Select();
+
+            if (_current_Character_Left != null)
+                _emote("Normal", _current_Character_Left);
+
+            if (_current_Character_Right != null)
+                _emote("Normal", _current_Character_Right);
+
+            nameWindowLeft.gameObject.SetActive(false);
+            nameWindowRight.gameObject.SetActive(false);
+
+            if (_current_Data.isLeftTalking == true)
+            {
+                nameWindowLeft.gameObject.SetActive(true);
+                nameTextLeft.text = _current_Data.CharacterLeft;
+            }
+
+            if (_current_Data.isRightTalking == true)
+            {
+                nameWindowRight.gameObject.SetActive(true);
+                nameTextRight.text = _current_Data.CharacterRight;
+            }
 
             _textingRoutine = StartCoroutine(Activate());
         }
@@ -113,8 +143,11 @@ namespace Doublsb.Dialog
                 StopCoroutine(_printingRoutine);
 
             Printer.SetActive(false);
-            Characters.SetActive(false);
+            CharactersLeft.SetActive(false);
+            CharactersRight.SetActive(false);
             Selector.SetActive(false);
+            nameWindowLeft.gameObject.SetActive(false);
+            nameWindowRight.gameObject.SetActive(false);
 
             state = State.Deactivate;
 
@@ -140,19 +173,24 @@ namespace Doublsb.Dialog
 
         public void Play_ChatSE()
         {
-            if (_current_Character != null)
+            if (_current_Character_Left != null && _current_Data.isLeftTalking)
             {
-                SEAudio.clip = _current_Character.ChatSE[UnityEngine.Random.Range(0, _current_Character.ChatSE.Length)];
+                SEAudio.clip = _current_Character_Left.ChatSE[UnityEngine.Random.Range(0, _current_Character_Left.ChatSE.Length)];
+                SEAudio.Play();
+            }
+            if (_current_Character_Right != null && _current_Data.isRightTalking)
+            {
+                SEAudio.clip = _current_Character_Right.ChatSE[UnityEngine.Random.Range(0, _current_Character_Right.ChatSE.Length)];
                 SEAudio.Play();
             }
         }
 
         public void Play_CallSE(string SEname)
         {
-            if (_current_Character != null)
+            if (_current_Character_Left != null)
             {
                 var FindSE
-                    = Array.Find(_current_Character.CallSE, (SE) => SE.name == SEname);
+                    = Array.Find(_current_Character_Left.CallSE, (SE) => SE.name == SEname);
 
                 CallAudio.clip = FindSE;
                 CallAudio.Play();
@@ -181,6 +219,7 @@ namespace Doublsb.Dialog
                     break;
 
                 default:
+                    // For some reason it doesn't work for float values. Int values seems fine.
                     _currentDelay = float.Parse(speed);
                     break;
             }
@@ -194,16 +233,39 @@ namespace Doublsb.Dialog
         //Private Method
         //================================================
 
-        private void _find_character(string name)
+        private void _hide_characters()
         {
-            if (name != string.Empty)
+            _current_Character_Left = null;
+            _current_Character_Right = null;
+
+            foreach(Transform character in CharactersLeft.transform)
             {
-                Transform Child = Characters.transform.Find(name);
-                if (Child != null) _current_Character = Child.GetComponent<Character>();
+                character.gameObject.SetActive(false);
+            }
+            foreach (Transform character in CharactersRight.transform)
+            {
+                character.gameObject.SetActive(false);
             }
         }
 
-        private void _initialize()
+        private void _find_character_left(string name)
+        {
+            if (name != string.Empty)
+            {
+                Transform Child = CharactersLeft.transform.Find(name);
+                if (Child != null) _current_Character_Left = Child.GetComponent<Character>();
+            }
+        }
+        private void _find_character_right(string name)
+        {
+            if (name != string.Empty)
+            {
+                Transform Child = CharactersRight.transform.Find(name);
+                if (Child != null) _current_Character_Right = Child.GetComponent<Character>();
+            }
+        }
+
+        private void _initialize_left()
         {
             _currentDelay = Delay;
             _lastDelay = 0.1f;
@@ -211,9 +273,22 @@ namespace Doublsb.Dialog
 
             Printer.SetActive(true);
 
-            Characters.SetActive(_current_Character != null);
-            foreach (Transform item in Characters.transform) item.gameObject.SetActive(false);
-            if(_current_Character != null) _current_Character.gameObject.SetActive(true);
+            CharactersLeft.SetActive(_current_Character_Left != null);
+            foreach (Transform item in CharactersLeft.transform) item.gameObject.SetActive(false);
+            if(_current_Character_Left != null) _current_Character_Left.gameObject.SetActive(true);
+        }
+
+        private void _initialize_right()
+        {
+            _currentDelay = Delay;
+            _lastDelay = 0.1f;
+            Printer_Text.text = string.Empty;
+
+            Printer.SetActive(true);
+
+            CharactersRight.SetActive(_current_Character_Right != null);
+            foreach (Transform item in CharactersRight.transform) item.gameObject.SetActive(false);
+            if (_current_Character_Right != null) _current_Character_Right.gameObject.SetActive(true);
         }
 
         private void _init_selector()
@@ -248,6 +323,10 @@ namespace Doublsb.Dialog
             var NewItem = Instantiate(SelectorItem, Selector.transform);
             NewItem.GetComponent<Button>().onClick.AddListener(() => Select(index));
             NewItem.SetActive(true);
+            if (index == 0)
+            {
+                NewItem.GetComponent<Button>().Select();
+            }
         }
 
         #region Show Text
@@ -267,7 +346,8 @@ namespace Doublsb.Dialog
 
         private IEnumerator Activate()
         {
-            _initialize();
+            _initialize_left();
+            _initialize_right();
 
             state = State.Active;
 
@@ -283,8 +363,12 @@ namespace Doublsb.Dialog
                         _current_Data.Format.Color = item.Context;
                         break;
 
-                    case Command.emote:
-                        _emote(item.Context);
+                    case Command.emoteleft:
+                        _emote(item.Context, _current_Character_Left);
+                        break;
+
+                    case Command.emoteright:
+                        _emote(item.Context, _current_Character_Right);
                         break;
 
                     case Command.size:
@@ -338,9 +422,9 @@ namespace Doublsb.Dialog
             _current_Data.PrintText += _current_Data.Format.CloseTagger;
         }
 
-        public void _emote(string Text)
+        public void _emote(string Text, Character _current_character)
         {
-            _current_Character.GetComponent<Image>().sprite = _current_Character.Emotion.Data[Text];
+            _current_character.GetComponent<Image>().sprite = _current_character.Emotion.Data[Text];
         }
 
         private IEnumerator _skip()

@@ -29,6 +29,7 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine.Events;
 using System.Linq;
+using TMPro;
 
 namespace Doublsb.Dialog
 {
@@ -44,7 +45,8 @@ namespace Doublsb.Dialog
     {
         print,
         color,
-        emote,
+        emoteleft,
+        emoteright,
         size,
         sound,
         speed,
@@ -124,7 +126,10 @@ namespace Doublsb.Dialog
         //================================================
         //Public Variable
         //================================================
-        public string Character;
+        public string CharacterLeft;
+        public string CharacterRight;
+        public bool isLeftTalking;
+        public bool isRightTalking;
         public List<DialogCommand> Commands = new List<DialogCommand>();
         public DialogSelect SelectList = new DialogSelect();
         public DialogFormat Format = new DialogFormat();
@@ -137,13 +142,16 @@ namespace Doublsb.Dialog
         //================================================
         //Public Method
         //================================================
-        public DialogData(string originalString, string character = "", UnityAction callback = null, bool isSkipable = true)
+        public DialogData(string originalString, string characterLeft = "", bool isLeftTalking = false, string characterRight = "", bool isRightTalking = false, UnityAction callback = null, bool isSkipable = true)
         {
             _convert(originalString);
 
             this.isSkippable = isSkipable;
             this.Callback = callback;
-            this.Character = character;
+            this.CharacterLeft = characterLeft;
+            this.CharacterRight = characterRight;
+            this.isLeftTalking = isLeftTalking;
+            this.isRightTalking = isRightTalking;
         }
 
         //================================================
